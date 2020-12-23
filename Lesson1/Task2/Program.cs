@@ -61,6 +61,7 @@ namespace Task2
             MyClass<Laptop> laptop = new MyClass<Laptop>();
             laptop.device.Describe(17, 8);       
             laptop.GetDeviceInfo();
+
             Console.ReadKey();
         }
     }
