@@ -55,21 +55,4 @@ namespace Task1
             }
         }
     }
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            MyList<int> int_arr = new MyList<int>();
-            Console.WriteLine("Array elements are:");
-            int_arr.GetValues();
-            Console.WriteLine(new string('-', 10));
-            Console.WriteLine("-1 contains in array: " + int_arr.Contains(-1).ToString());
-            Console.WriteLine("1 contains in array: " + int_arr.Contains(1).ToString());
-            Console.WriteLine(new string('-', 10));
-            Console.WriteLine("After clear array elements are:");
-            int_arr.Clear();
-            int_arr.GetValues();
-            Console.ReadKey();
-        }
-    }
 }
