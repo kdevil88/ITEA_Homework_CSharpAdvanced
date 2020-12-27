@@ -1,0 +1,6 @@
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task3\obj\Debug\Task3.csproj.CoreCompileInputs.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task3\bin\Debug\Task3.exe.config
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task3\bin\Debug\Task3.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task3\bin\Debug\Task3.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task3\obj\Debug\Task3.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task3\obj\Debug\Task3.pdb
