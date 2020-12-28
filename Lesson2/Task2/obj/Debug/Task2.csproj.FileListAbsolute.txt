@@ -5,3 +5,7 @@ C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task2\bin\Debug\Task2.exe
 C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task2\bin\Debug\Task2.pdb
 C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task2\obj\Debug\Task2.exe
 C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task2\obj\Debug\Task2.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task2\bin\Debug\Task1.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task2\bin\Debug\Task1.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task2\bin\Debug\Task1.exe.config
+C:\Projects\ITEA\C#Advanced\Homework\Lesson2\Task2\obj\Debug\Task2.csproj.CopyComplete

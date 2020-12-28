@@ -11,17 +11,9 @@ namespace Task1
         void Clear();
         bool Contains(T item);
     }
-   class MyList<T>: IMyList<T>
+   public class MyList<T>: IMyList<T>
     {
         private T[] array = new T[0];
-        public MyList()
-        {
-            
-            for (int i = 0; i < 20; i++)
-            {
-                this.Add((T)(object)(i+1));
-            }
-        }
         public void Add(T item)
         {
             Array.Resize(ref this.array, this.array.Length + 1);
@@ -60,6 +52,10 @@ namespace Task1
         static void Main(string[] args)
         {
             MyList<int> int_arr = new MyList<int>();
+            for (int i = 0; i < 20; i++)
+            {
+                int_arr.Add(i+1);
+            }
             Console.WriteLine("Array elements are:");
             int_arr.GetValues();
             Console.WriteLine(new string('-', 10));

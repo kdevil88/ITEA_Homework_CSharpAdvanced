@@ -20,6 +20,10 @@ namespace Task2
         static void Main(string[] args)
         {
             MyList<int> int_arr = new MyList<int>();
+            for (int i = 0; i < 20; i++)
+            {
+                int_arr.Add(i + 1);
+            }
             int[] array = int_arr.GetArray();
             for (int i = 0; i < array.Length; i++)
             {
