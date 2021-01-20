@@ -5,7 +5,6 @@ C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task1\bin\Debug\EntityFramework.dll
 C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task1\bin\Debug\EntityFramework.SqlServer.dll
 C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task1\bin\Debug\EntityFramework.xml
 C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task1\bin\Debug\EntityFramework.SqlServer.xml
-C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task1\obj\Debug\Task1.csprojAssemblyReference.cache
 C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task1\obj\Debug\Task1.Form1.resources
 C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task1\obj\Debug\Task1.Properties.Resources.resources
 C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task1\obj\Debug\Task1.csproj.GenerateResource.cache
