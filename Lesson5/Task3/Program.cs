@@ -16,8 +16,8 @@ namespace Task3
             {
                 try
                 {
-                    BaseSource m1 = new BaseSource() { Id = 1, Name = "Database" };
-                    BaseSource m2 = new BaseSource() { Id = 1, Name = "Code" };
+                    BaseSource m1 = new BaseSource() { Name = "Database" };
+                    BaseSource m2 = new BaseSource() { Name = "Code" };
                     db.BaseSourceList.AddRange(new List<BaseSource>() {m1, m2});
                     db.SaveChanges();
 

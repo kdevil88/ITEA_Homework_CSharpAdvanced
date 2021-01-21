@@ -16,8 +16,8 @@ namespace Task4
             {
                 try
                 {
-                    Teachers t1 = new Teachers() { Id = 1, FIO = "Alex Glembitskij", Age = 27};
-                    Teachers t2 = new Teachers() { Id = 2, FIO = "Elon Musk", Age = 49 };
+                    Teachers t1 = new Teachers() { FIO = "Alex Glembitskij", Age = 27};
+                    Teachers t2 = new Teachers() { FIO = "Elon Musk", Age = 49 };
                     db.TeachersList.AddRange(new List<Teachers>() { t1, t2 });
                     db.SaveChanges();
 
@@ -27,10 +27,10 @@ namespace Task4
                         Console.WriteLine("{0}. {1}", item.Id, item.FIO);
                     }
 
-                    Students s1 = new Students() { Id = 1, FIO = "Andrey Andreeev" };
-                    Students s2 = new Students() { Id = 2, FIO = "Viktor Federovich" };
-                    Students s3 = new Students() { Id = 3, FIO = "Petr Petrovich" };
-                    Students s4 = new Students() { Id = 4, FIO = "Vladimir Aleksandrovich" };
+                    Students s1 = new Students() { FIO = "Andrey Andreeev" };
+                    Students s2 = new Students() { FIO = "Viktor Federovich" };
+                    Students s3 = new Students() { FIO = "Petr Petrovich" };
+                    Students s4 = new Students() { FIO = "Vladimir Aleksandrovich" };
                     db.StudentsList.AddRange(new List<Students>() { s1, s2, s3, s4 });
                     db.SaveChanges();
 
@@ -40,8 +40,8 @@ namespace Task4
                         Console.WriteLine("{0}. {1}", item.Id, item.FIO);
                     }
 
-                    Courses c1 = new Courses() { Id = 1, Name = "C# Advanced" };
-                    Courses c2 = new Courses() { Id = 2, Name = "How to create hyperloop" };
+                    Courses c1 = new Courses() { Name = "C# Advanced" };
+                    Courses c2 = new Courses() { Name = "How to create hyperloop" };
                     db.CoursesList.AddRange(new List<Courses>() { c1, c2 });
                     db.SaveChanges();
 

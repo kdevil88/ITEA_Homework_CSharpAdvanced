@@ -16,9 +16,9 @@ namespace Task5
             {
                 try
                 {
-                    Courses c1 = new Courses() { Id = 1, Name = "Python for dummies" };
-                    Courses c2 = new Courses() { Id = 2, Name = "C# advanced" };
-                    Courses c3 = new Courses() { Id = 3, Name = ".NET Core web development" };
+                    Courses c1 = new Courses() { Name = "Python for dummies" };
+                    Courses c2 = new Courses() { Name = "C# advanced" };
+                    Courses c3 = new Courses() { Name = ".NET Core web development" };
                     db.CoursesList.AddRange(new List<Courses>() { c1, c2, c3 });
                     db.SaveChanges();
 
@@ -43,13 +43,13 @@ namespace Task5
                     Console.WriteLine("FirstOrDefault found Delphi course: {0}", 
                         firstordefault == null ? "не найдено" : firstordefault.Course.Name);
                     //min
-                    var min = db.CourseDetails.Min(d => d.Duration);
+                    int min = db.CourseDetails.Min(d => d.Duration);
                     Console.WriteLine("Shortest course duration: {0} hours", min);
                     //max
-                    var max = db.CourseDetails.Max(d => d.Duration);
+                    int max = db.CourseDetails.Max(d => d.Duration);
                     Console.WriteLine("Longest course duration: {0} hours", max);
                     //average
-                    var avg = db.CourseDetails.Average(d => d.Duration);
+                    double avg = db.CourseDetails.Average(d => d.Duration);
                     Console.WriteLine("Average course duration: {0} hours", avg);
                 }
                 catch (Exception e)
