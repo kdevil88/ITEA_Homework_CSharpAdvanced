@@ -1,0 +1,12 @@
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\bin\Debug\Task5.exe.config
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\bin\Debug\Task5.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\bin\Debug\Task5.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\bin\Debug\EntityFramework.dll
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\bin\Debug\EntityFramework.xml
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\obj\Debug\Task5.csprojAssemblyReference.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\obj\Debug\Task5.csproj.CoreCompileInputs.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\obj\Debug\Task5.csproj.CopyComplete
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\obj\Debug\Task5.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson5\Task5\obj\Debug\Task5.pdb
