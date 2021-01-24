@@ -1,0 +1,6 @@
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\TemperatureConverter\bin\Debug\TemperatureConverter.dll
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\TemperatureConverter\bin\Debug\TemperatureConverter.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\TemperatureConverter\obj\Debug\TemperatureConverter.csprojAssemblyReference.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\TemperatureConverter\obj\Debug\TemperatureConverter.csproj.CoreCompileInputs.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\TemperatureConverter\obj\Debug\TemperatureConverter.dll
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\TemperatureConverter\obj\Debug\TemperatureConverter.pdb

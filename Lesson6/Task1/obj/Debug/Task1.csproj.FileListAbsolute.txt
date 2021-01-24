@@ -1,0 +1,10 @@
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\bin\Debug\Task1.exe.config
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\bin\Debug\Task1.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\bin\Debug\Task1.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\obj\Debug\Task1.csprojAssemblyReference.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\obj\Debug\Task1.csproj.CoreCompileInputs.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\obj\Debug\Task1.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\obj\Debug\Task1.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\bin\Debug\TemperatureConverter.dll
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\bin\Debug\TemperatureConverter.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\Task1\obj\Debug\Task1.csproj.CopyComplete

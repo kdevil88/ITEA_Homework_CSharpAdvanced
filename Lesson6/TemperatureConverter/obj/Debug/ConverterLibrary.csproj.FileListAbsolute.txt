@@ -1,0 +1,2 @@
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\TemperatureConverter\obj\Debug\ConverterLibrary.csprojAssemblyReference.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson6\TemperatureConverter\obj\Debug\ConverterLibrary.csproj.CoreCompileInputs.cache

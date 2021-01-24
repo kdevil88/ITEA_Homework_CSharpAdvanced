@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj", "{A67027E6-15D7-4116-9881-CB1C156FC92F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureConverter", "TemperatureConverter\TemperatureConverter.csproj", "{947BB76F-E240-4638-9E07-DA91A2B7237E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2", "Task2\Task2.csproj", "{EB188449-201A-4E63-8776-3A5815B5CC3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A67027E6-15D7-4116-9881-CB1C156FC92F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67027E6-15D7-4116-9881-CB1C156FC92F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67027E6-15D7-4116-9881-CB1C156FC92F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67027E6-15D7-4116-9881-CB1C156FC92F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{947BB76F-E240-4638-9E07-DA91A2B7237E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{947BB76F-E240-4638-9E07-DA91A2B7237E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{947BB76F-E240-4638-9E07-DA91A2B7237E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{947BB76F-E240-4638-9E07-DA91A2B7237E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB188449-201A-4E63-8776-3A5815B5CC3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB188449-201A-4E63-8776-3A5815B5CC3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB188449-201A-4E63-8776-3A5815B5CC3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB188449-201A-4E63-8776-3A5815B5CC3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7236021B-58E0-4166-80B3-4E3137B87180}
+	EndGlobalSection
+EndGlobal
