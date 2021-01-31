@@ -1,0 +1,10 @@
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\bin\Debug\Task4.exe.config
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\bin\Debug\Task4.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\bin\Debug\Task4.pdb
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\obj\Debug\Task4_Registry.csprojAssemblyReference.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\obj\Debug\Task4.fmMain.resources
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\obj\Debug\Task4.Properties.Resources.resources
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\obj\Debug\Task4_Registry.csproj.GenerateResource.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\obj\Debug\Task4_Registry.csproj.CoreCompileInputs.cache
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\obj\Debug\Task4.exe
+C:\Projects\ITEA\C#Advanced\Homework\Lesson8\Task4_Registry\obj\Debug\Task4.pdb
