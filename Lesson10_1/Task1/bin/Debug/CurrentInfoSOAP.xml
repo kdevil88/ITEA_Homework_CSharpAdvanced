@@ -1,0 +1,9 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Body>
+<a1:CurrentInfo id="ref-1" xmlns:a1="http://schemas.microsoft.com/clr/nsassem/Task1/Task1%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull">
+<TemperatureOutside>-3</TemperatureOutside>
+<CurrentDateTime>2021-02-04T10:47:39.9730400+02:00</CurrentDateTime>
+<Day id="ref-3">wednesday</Day>
+</a1:CurrentInfo>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
