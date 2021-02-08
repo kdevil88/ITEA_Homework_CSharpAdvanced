@@ -1,0 +1,14 @@
+C:\Users\Oleksandr.Korniienko\source\repos\Lesson12\Task3\bin\Debug\Task3.exe.config
+C:\Users\Oleksandr.Korniienko\source\repos\Lesson12\Task3\bin\Debug\Task3.exe
+C:\Users\Oleksandr.Korniienko\source\repos\Lesson12\Task3\bin\Debug\Task3.pdb
+C:\Users\Oleksandr.Korniienko\source\repos\Lesson12\Task3\obj\Debug\Task3.csprojAssemblyReference.cache
+C:\Users\Oleksandr.Korniienko\source\repos\Lesson12\Task3\obj\Debug\Task3.csproj.CoreCompileInputs.cache
+C:\Users\Oleksandr.Korniienko\source\repos\Lesson12\Task3\obj\Debug\Task3.exe
+C:\Users\Oleksandr.Korniienko\source\repos\Lesson12\Task3\obj\Debug\Task3.pdb
+c:\Projects\ITEA\C#Advanced\Homework\Lesson12\Task3\bin\Debug\Task3.exe.config
+c:\Projects\ITEA\C#Advanced\Homework\Lesson12\Task3\bin\Debug\Task3.exe
+c:\Projects\ITEA\C#Advanced\Homework\Lesson12\Task3\bin\Debug\Task3.pdb
+c:\Projects\ITEA\C#Advanced\Homework\Lesson12\Task3\obj\Debug\Task3.csprojAssemblyReference.cache
+c:\Projects\ITEA\C#Advanced\Homework\Lesson12\Task3\obj\Debug\Task3.csproj.CoreCompileInputs.cache
+c:\Projects\ITEA\C#Advanced\Homework\Lesson12\Task3\obj\Debug\Task3.exe
+c:\Projects\ITEA\C#Advanced\Homework\Lesson12\Task3\obj\Debug\Task3.pdb
