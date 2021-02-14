@@ -1,0 +1,58 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GraduationWork"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" x:Class="GraduationWork.MainWindow"
+        mc:Ignorable="d"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        Title="GraduationWork" Height="450" Width="800" Loaded="Window_Loaded" WindowState="Maximized" Initialized="Window_Initialized" Closing="Window_Closing">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="enumRoles" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Roles"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid Margin="2">
+        <DockPanel Height="24" LastChildFill="False" VerticalAlignment="Top">
+            <dxb:MainMenuControl Height="24" VerticalAlignment="Top" Width="100"/>
+        </DockPanel>
+        <TabControl Margin="0,24,0,0" RenderTransformOrigin="0.5,0.5">
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.128"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.498"/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+            <TabItem x:Name="tabOrders" Header="Заказы">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabProducts" Header="Продукты">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem x:Name="tabCustomers" Header="Покупатели">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem x:Name="tabManagers" Header="Менеджеры">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem x:Name="tabUsers" Header="Пользователи">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="gridUsers" Loaded="gridUsers_Loaded" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldUserName" Header="Логин" Binding="{Binding Name}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldUserPassword" Header="Пароль" Binding="{Binding Password}"/>
+                            <DataGridComboBoxColumn MinWidth="100" x:Name="fieldUserRole" Header="Роль" SelectedValueBinding="{Binding Role}" ItemsSource="{Binding Source={StaticResource enumRoles}}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
