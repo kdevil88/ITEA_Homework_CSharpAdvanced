@@ -165,7 +165,7 @@ namespace GraduationWork
 
 #else
             if (!TryLogin())
-                Application.Current.Shutdown();
+                System.Windows.Application.Current.Shutdown();
 #endif
             NewOrderList = new List<NewOrder>();
             gridNewOrder.ItemsSource = NewOrderList.ToList();
@@ -440,7 +440,6 @@ namespace GraduationWork
             System.Windows.Media.Color ConvertedColor = System.Windows.Media.Color.FromArgb(CurrentFontColor.A, CurrentFontColor.R, CurrentFontColor.G, CurrentFontColor.B);
             SolidColorBrush BrushColor = new SolidColorBrush(ConvertedColor);
             this.Foreground = BrushColor;
-            MainMenu.Foreground = BrushColor;
             tcMain.Foreground = BrushColor;
             tabNewOrder.Foreground = BrushColor;
             gridNewOrder.Foreground = BrushColor;
@@ -498,7 +497,7 @@ namespace GraduationWork
             window.FontSize = this.FontSize;
         }
 
-        private void btChangeBackColor_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        private void btChangeBackColor_Click(object sender, RoutedEventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
             if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -508,7 +507,7 @@ namespace GraduationWork
             }
         }
 
-        private void btChangeFontColor_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        private void btChangeFontColor_Click(object sender, RoutedEventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
             if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -518,7 +517,7 @@ namespace GraduationWork
             }
         }
 
-        private void btChangeFont_ItemClick(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        private void btChangeFont_Click(object sender, RoutedEventArgs e)
         {
             FontDialog fontDialog = new FontDialog();
             if (fontDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)

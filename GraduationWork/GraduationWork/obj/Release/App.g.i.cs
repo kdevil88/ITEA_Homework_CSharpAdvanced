@@ -9,7 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using DevExpress.Xpf.DXBinding;
 using GraduationWork;
 using System;
 using System.Diagnostics;

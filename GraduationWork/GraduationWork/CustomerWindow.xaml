@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraduationWork"
-        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="GraduationWork.CustomerWindow"
+        x:Class="GraduationWork.CustomerWindow"
         mc:Ignorable="d"
         Title="Покупатель" Height="244.037" Width="320" WindowStartupLocation="CenterScreen" Topmost="True" ResizeMode="NoResize">
     <Grid Margin="2,1,2,-1" Width="310" UseLayoutRounding="False">
