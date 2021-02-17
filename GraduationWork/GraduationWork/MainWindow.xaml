@@ -4,22 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GraduationWork"
-        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" x:Class="GraduationWork.MainWindow"
-        mc:Ignorable="d"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
-        Title="GraduationWork" Height="450" Width="800" Loaded="Window_Loaded" WindowState="Maximized" Initialized="Window_Initialized" Closing="Window_Closing">
-    <Window.Resources>
-        <ObjectDataProvider x:Key="enumRoles" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
-            <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="local:Roles"/>
-            </ObjectDataProvider.MethodParameters>
-        </ObjectDataProvider>
-    </Window.Resources>
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="GraduationWork.MainWindow"
+        mc:Ignorable="d"
+        Title="GraduationWork" Height="450" Width="800" WindowState="Maximized" Closing="Window_Closing">
     <Grid Margin="2">
         <DockPanel Height="24" LastChildFill="False" VerticalAlignment="Top">
-            <dxb:MainMenuControl Height="24" VerticalAlignment="Top" Width="100"/>
+            <dxb:MainMenuControl x:Name="MainMenu" Height="24" VerticalAlignment="Top" Width="787">
+                <dxb:BarButtonItem x:Name="btChangeBackColor" Content="Цвет фона" ItemClick="btChangeBackColor_ItemClick"/>
+                <dxb:BarButtonItem x:Name="btChangeFont" Content="Шрифт" ItemClick="btChangeFont_ItemClick"/>
+                <dxb:BarButtonItem x:Name="btChangeFontColor" Content="Цвет шрифта" ItemClick="btChangeFontColor_ItemClick"/>
+            </dxb:MainMenuControl>
         </DockPanel>
-        <TabControl Margin="0,24,0,0" RenderTransformOrigin="0.5,0.5">
+        <TabControl x:Name="tcMain" Margin="0,24,0,0" RenderTransformOrigin="0.5,0.5">
             <TabControl.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -28,27 +26,75 @@
                     <TranslateTransform Y="0.498"/>
                 </TransformGroup>
             </TabControl.RenderTransform>
-            <TabItem x:Name="tabOrders" Header="Заказы">
+            <TabItem x:Name="tabNewOrder" Header="Новый заказ">
+                <Grid x:Name="GridNewOrder" Background="#FFE5E5E5">
+                    <DataGrid x:Name="gridNewOrder" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,25" MouseDoubleClick="gridNewOrder_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldNewOrderProductName" Header="Наименование" Binding="{Binding Product.Name}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldNewOrderProductQuantity" Header="Количество" Binding="{Binding Quantity}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldProductTotalPrice" Header="Сумма" Binding="{Binding ProductTotalPrice}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btAddNewOrder" Content="Добавить позицию" Width="134" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Click="btAddNewOrder_Click"/>
+                    <Button x:Name="btEditNewOrder" Content="Редактировать позицию" Width="164" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="134,0,0,0" Click="btEditNewOrder_Click"/>
+                    <Button x:Name="btDeleteNewOrder" Content="Удалить позицию" Width="127" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="298,0,0,0" Click="btDeleteNewOrder_Click"/>
+                    <Button x:Name="btClearNewOrder" Content="Очистить" Width="85" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="425,0,0,0" Click="btClearNewOrder_Click"/>
+                    <Button x:Name="btMakeNewOrder" Content="Оформить заказ" VerticalAlignment="Bottom" Height="25" Margin="631,0,0,0" HorizontalAlignment="Right" Background="#FFF7F7FA" FontWeight="Bold"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabOrders" Header="История заказов">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid/>
+                    <DataGrid x:Name="gridOrders" AutoGenerateColumns="False" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabProducts" Header="Продукты">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="gridProducts" AutoGenerateColumns="False" CellEditEnding="gridProducts_CellEditEnding">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldProductName" Header="Наименование" Binding="{Binding Name}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldProductDescription" Header="Описание" Binding="{Binding Description}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldProductPrice" Header="Цена" Binding="{Binding Price}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tabCustomers" Header="Покупатели">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid x:Name="GridCustomers" Background="#FFE5E5E5">
+                    <DataGrid x:Name="gridCustomers" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,25" MouseDoubleClick="gridCustomers_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldCustomerUserName" Header="Пользователь" Binding="{Binding User.Name}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldCustomerFIO" Header="ФИО" Binding="{Binding FIO}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldCustomerBirthday" Header="Дата рождения" Binding="{Binding Birthday}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btAddCustomer" Content="Добавить" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Click="btAddCustomer_Click"/>
+                    <Button x:Name="btEditCustomer" Content="Редактировать" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="80,0,0,0" Click="btEditCustomer_Click"/>
+                    <Button x:Name="btDeleteCustomer" Content="Удалить" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="190,0,0,0" Click="btDeleteCustomer_Click"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tabManagers" Header="Менеджеры">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid x:Name="GridManagers" Background="#FFE5E5E5">
+                    <DataGrid x:Name="gridManagers" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,25" MouseDoubleClick="gridManagers_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldManagerUserId" Header="Пользователь" Binding="{Binding User.Name}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldManagerFIO" Header="ФИО" Binding="{Binding FIO}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btAddManager" Content="Добавить" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Click="btAddManager_Click"/>
+                    <Button x:Name="btEditManager" Content="Редактировать" Width="110" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="80,0,0,0" Click="btEditManager_Click"/>
+                    <Button x:Name="btDeleteManager" Content="Удалить" Width="80" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="190,0,0,0" Click="btDeleteManager_Click"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="tabUsers" Header="Пользователи">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="gridUsers" Loaded="gridUsers_Loaded" AutoGenerateColumns="False">
+                    <DataGrid x:Name="gridUsers" AutoGenerateColumns="False" CellEditEnding="gridUsers_CellEditEnding">
                         <DataGrid.Columns>
                             <DataGridTextColumn MinWidth="100" x:Name="fieldUserName" Header="Логин" Binding="{Binding Name}"/>
                             <DataGridTextColumn MinWidth="100" x:Name="fieldUserPassword" Header="Пароль" Binding="{Binding Password}"/>
-                            <DataGridComboBoxColumn MinWidth="100" x:Name="fieldUserRole" Header="Роль" SelectedValueBinding="{Binding Role}" ItemsSource="{Binding Source={StaticResource enumRoles}}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

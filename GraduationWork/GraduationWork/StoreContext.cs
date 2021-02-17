@@ -30,43 +30,40 @@
         public virtual DbSet<User> Users { get; set; }
     }
 
-    public enum Roles
-    {
-        Admin,
-        User
-    }
-
     public class Product
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public decimal Price { get; set; }
     }
+    public class Order
+    {
+        public int Id { get; set; }
+        public int OrderId { get; set; }
+        public Product Product { get; set; }
+        public Customer Customer { get; set; }
+        public DateTime OrderDate { get; set; }
+    }
+    [AccessLevel(1)]
     public class Customer
     {
         public int Id { get; set; }
         public User User { get; set; }
         public string FIO { get; set; }
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
     }
+    [AccessLevel(2)]
     public class Manager
     {
         public int Id { get; set; }
         public User User { get; set; }
         public string FIO { get; set; }
     }
-    public class Order
-    {
-        public int Id { get; set; }
-        public Product[] Product { get; set; }
-        public Customer Customer { get; set; }
-        public User User { get; set; }
-    }
     public class User
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public Roles Role { get; set; }
     }
 }

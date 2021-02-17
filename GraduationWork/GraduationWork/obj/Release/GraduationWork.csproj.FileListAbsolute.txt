@@ -52,3 +52,8 @@ C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\L
 C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\LoginWindow.baml
 C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\GraduationWork.exe.licenses
 C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\GraduationWork.csproj.CopyComplete
+C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\GraduationWork.csprojAssemblyReference.cache
+C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\CustomerWindow.g.cs
+C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\ManagerWindow.g.cs
+C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\CustomerWindow.baml
+C:\Projects\ITEA\C#Advanced\Homework\GraduationWork\GraduationWork\obj\Release\ManagerWindow.baml
