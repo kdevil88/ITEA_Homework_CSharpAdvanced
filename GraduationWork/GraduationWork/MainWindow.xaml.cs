@@ -1,25 +1,20 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Drawing;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Reflection;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
+
 
 namespace GraduationWork
 {
@@ -103,47 +98,48 @@ namespace GraduationWork
             UserData = AuthData;
             this.Title = string.Format("Store @ {0}", UserData.Name);
             setPermissions(CurrentUser);
+            ReadSettings();
         }
 
         public void setPermissions(object user)
         {
-            Type utype = user.GetType();
-            object[] attributes = utype.GetCustomAttributes(false);
-            foreach (var item in attributes)
+            bool IsAdmin = Common.isAdmin(user);
+            if (!IsAdmin)
             {
-                if (item is AccessLevelAttribute)
-                {
-                    bool isAdmin = (item as AccessLevelAttribute).level > 1;
-                    if (!isAdmin)
-                    {
-                        int cust_id = (user as Customer).Id;
-                        db.Orders.Where(o => o.Customer.Id == cust_id).Load();
-                        tabProducts.Visibility = Visibility.Collapsed;
-                        tabCustomers.Visibility = Visibility.Collapsed;
-                        tabManagers.Visibility = Visibility.Collapsed;
-                        tabUsers.Visibility = Visibility.Collapsed;
-                        tcMain.SelectedIndex = 0;
-                    }
-                    else
-                    {
-                        db.Orders.Load();
-                        tabNewOrder.Visibility = Visibility.Collapsed;
-                        tcMain.SelectedIndex = 1;
-                    }
-                }
+                int cust_id = (user as Customer).Id;
+                db.Orders.Where(o => o.Customer.Id == cust_id).OrderByDescending(o => o.OrderId).Load();
+                tabProducts.Visibility = Visibility.Collapsed;
+                tabCustomers.Visibility = Visibility.Collapsed;
+                tabManagers.Visibility = Visibility.Collapsed;
+                tabUsers.Visibility = Visibility.Collapsed;
+                tcMain.SelectedIndex = 0;
+            }
+            else
+            {
+                db.Orders.OrderByDescending(o => o.OrderId).Load();
+                tabNewOrder.Visibility = Visibility.Collapsed;
+                tcMain.SelectedIndex = 1;
             }
         }
+
         private void ReadSettings()
         {
             RegistryKey settings = Registry.CurrentUser.CreateSubKey(@"Software\ITEA_Store\" + UserData.Name);
             if (settings.GetValue("BackColor") != null)
+            {
                 CurrentBackColor = ColorTranslator.FromHtml((string)settings.GetValue("BackColor"));
+                UpdateColors();
+            }
             if (settings.GetValue("FontColor") != null)
+            {
                 CurrentFontColor = ColorTranslator.FromHtml((string)settings.GetValue("FontColor"));
+                UpdateFontColors();
+            }
             if (settings.GetValue("Font") != null)
             {
                 var fc = new FontConverter();
                 CurrentFont = (Font)fc.ConvertFromString((string)settings.GetValue("Font"));
+                UpdateFonts();
             }
             settings.Close();
         }
@@ -160,13 +156,8 @@ namespace GraduationWork
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<StoreContext>());
             db = new StoreContext();
             Seed();
-#if DEBUG
-            setCurrentUser(db.Users.FirstOrDefault<User>(n => n.Name.Equals("admin")));
-
-#else
             if (!TryLogin())
                 System.Windows.Application.Current.Shutdown();
-#endif
             NewOrderList = new List<NewOrder>();
             gridNewOrder.ItemsSource = NewOrderList.ToList();
             gridOrders.ItemsSource = db.Orders.Local.ToBindingList();
@@ -191,7 +182,7 @@ namespace GraduationWork
                 if ((bool)login.ShowDialog())
                 {
                     User login_user = db.Users.FirstOrDefault<User>(n => n.Name.Equals(login.txtLogin.Text.Trim()));
-                    login_result = login_user != null && login_user.Password.Equals(login.txtPassword.Password.Trim());
+                    login_result = Common.checkCredentials(login_user, login.txtPassword.Password);
                     if (!login_result)
                     {
                         System.Windows.MessageBox.Show("Неправильно указан логин или пароль");
@@ -201,7 +192,10 @@ namespace GraduationWork
                         setCurrentUser(login_user);
                 }
                 else
-                    login_result = false;
+                {
+                    login_result = true;
+                    System.Windows.Application.Current.Shutdown();
+                }
             }
             return login_result;
         }
@@ -433,6 +427,9 @@ namespace GraduationWork
             gridManagers.Background = BrushColor;
             tabUsers.Background = BrushColor;
             gridUsers.Background = BrushColor;
+            btChangeBackColor.Background = BrushColor;
+            btChangeFont.Background = BrushColor;
+            btChangeFontColor.Background = BrushColor;
         }
 
         private void UpdateFontColors()
@@ -500,9 +497,11 @@ namespace GraduationWork
         private void btChangeBackColor_Click(object sender, RoutedEventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
+            colorDialog.Color = CurrentBackColor;
             if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 CurrentBackColor = colorDialog.Color;
+                WriteSettings("BackColor", ColorTranslator.ToHtml(CurrentBackColor));
                 UpdateColors();
             }
         }
@@ -510,21 +509,67 @@ namespace GraduationWork
         private void btChangeFontColor_Click(object sender, RoutedEventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
+            colorDialog.Color = CurrentFontColor;
             if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 CurrentFontColor = colorDialog.Color;
+                WriteSettings("FontColor", ColorTranslator.ToHtml(CurrentFontColor));
                 UpdateFontColors();
             }
+        }
+
+        static void OpenTicket(IAsyncResult asyncResult)
+        {
+            Stream stream = asyncResult.AsyncState as Stream;
+            if (stream != null)
+            {
+                stream.Close();
+            }
+            System.Diagnostics.Process.Start(stream.GetType().GetField("m_FullPath", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(stream).ToString());
         }
 
         private void btChangeFont_Click(object sender, RoutedEventArgs e)
         {
             FontDialog fontDialog = new FontDialog();
+            fontDialog.Font = CurrentFont;
             if (fontDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 CurrentFont = fontDialog.Font;
+                var fc = new FontConverter();
+                WriteSettings("Font", fc.ConvertToString(CurrentFont));
                 UpdateFonts();
             }
+        }
+
+        private void btMakeNewOrder_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewOrderList.Count() == 0) return;
+            int NewOrderId = 1;
+            DateTime NewOrderDate = DateTime.Now;
+            if (db.Orders.Local.Count() > 0)
+                NewOrderId = db.Orders.Local.Max(o => o.OrderId) + 1;
+            StringBuilder ticket = new StringBuilder();
+            ticket.Append("Чек из нашего магазина\n\n");
+            ticket.Append(string.Format("Заказ №{0}\n", NewOrderId));
+            ticket.Append(string.Format("Дата покупки {0}\n\n", NewOrderDate));
+            foreach (NewOrder newOrderItem in NewOrderList)
+            {
+                db.Orders.Add(new Order
+                {
+                    OrderId = NewOrderId,
+                    OrderDate = NewOrderDate,
+                    Product = newOrderItem.Product,
+                    Quantity = newOrderItem.Quantity,
+                    Customer = CurrentUser as Customer
+                });
+                ticket.Append(string.Format("{0} {1} – {2} грн.\n", newOrderItem.Product.Name, newOrderItem.Quantity, newOrderItem.ProductTotalPrice));
+            }
+            db.SaveChanges();
+            IsolatedStorageFile userStorage = IsolatedStorageFile.GetUserStoreForAssembly();
+            IsolatedStorageFileStream tempTicket = new IsolatedStorageFileStream("temp.txt", FileMode.Create, userStorage);
+            byte[] array = Encoding.UTF8.GetBytes(ticket.ToString());
+            tempTicket.BeginWrite(array, 0, array.Length, new AsyncCallback(OpenTicket), tempTicket);
+            btClearNewOrder_Click(null, null);
         }
     }
 }

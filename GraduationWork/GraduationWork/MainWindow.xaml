@@ -36,14 +36,18 @@
                     <Button x:Name="btEditNewOrder" Content="Редактировать позицию" Width="164" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="134,0,0,0" Click="btEditNewOrder_Click"/>
                     <Button x:Name="btDeleteNewOrder" Content="Удалить позицию" Width="127" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="298,0,0,0" Click="btDeleteNewOrder_Click"/>
                     <Button x:Name="btClearNewOrder" Content="Очистить" Width="85" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="25" Margin="425,0,0,0" Click="btClearNewOrder_Click"/>
-                    <Button x:Name="btMakeNewOrder" Content="Оформить заказ" VerticalAlignment="Bottom" Height="25" Margin="631,0,0,0" HorizontalAlignment="Right" Background="#FFF7F7FA" FontWeight="Bold"/>
+                    <Button x:Name="btMakeNewOrder" Content="Оформить заказ" VerticalAlignment="Bottom" Height="25" HorizontalAlignment="Right" Background="#FFF7F7FA" FontWeight="Bold" Width="120" Click="btMakeNewOrder_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabOrders" Header="История заказов">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid x:Name="gridOrders" AutoGenerateColumns="False" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldOrdersOrderId" Header="№ заказа" Binding="{Binding OrderId}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldOrdersProductName" Header="Продукт" Binding="{Binding Product.Name}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldOrdersProductQuantity" Header="Количество" Binding="{Binding Quantity}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldOrdersCustomerName" Header="Покупатель" Binding="{Binding Customer.FIO}"/>
+                            <DataGridTextColumn MinWidth="100" x:Name="fieldOrdersOrderDate" Header="Дата заказа" Binding="{Binding OrderDate}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
